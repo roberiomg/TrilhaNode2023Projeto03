@@ -7,7 +7,7 @@ export async function searchGymsController(
   reply: FastifyReply,
 ) {
   const searchGymsQuerySchema = z.object({
-    query: z.coerce.string(),
+    query: z.string(),
     page: z.coerce.number().min(1).default(1),
   })
 
