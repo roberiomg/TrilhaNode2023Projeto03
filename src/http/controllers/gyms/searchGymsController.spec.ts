@@ -1,4 +1,5 @@
 import request from 'supertest'
+
 import { app } from '@/app'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import { createAndAuthenticateUser } from '@/use-cases/utils/test/create_and_authenticate_user'
@@ -40,7 +41,7 @@ describe('Search Gyms (e2e)', () => {
     const response = await request(app.server)
       .get('/gyms/search')
       .query({
-        q: 'JavaScript',
+        query: 'TypeScript',
       })
       .set('Authorization', `Bearer ${token}`)
       .send()
@@ -49,7 +50,7 @@ describe('Search Gyms (e2e)', () => {
     expect(response.body.gyms).toHaveLength(1)
     expect(response.body.gyms).toEqual([
       expect.objectContaining({
-        title: 'JavaScript Gym',
+        title: 'TypeScript Gym',
       }),
     ])
   })
