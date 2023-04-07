@@ -6,7 +6,7 @@ import { prisma } from '@/lib/prisma'
 
 describe('Validate CheckIn (e2e)', () => {
   beforeAll(async () => {
-    await app.ready()
+    await app.ready() 
   })
 
   afterAll(async () => {
@@ -14,7 +14,7 @@ describe('Validate CheckIn (e2e)', () => {
   })
 
   it('Deve ser possível validar um checkIn', async () => {
-    const { token } = await createAndAuthenticateUser(app)
+    const { token } = await createAndAuthenticateUser(app, true)
 
     const user = await prisma.user.findFirstOrThrow()
 

@@ -13,7 +13,7 @@ describe('Create Gym (e2e)', () => {
   })
 
   it('Deve ser possível criar uma academia', async () => {
-    const { token } = await createAndAuthenticateUser(app)
+    const { token } = await createAndAuthenticateUser(app, true)
 
     // Faz a chamada para criar a academia
     const response = await request(app.server)
